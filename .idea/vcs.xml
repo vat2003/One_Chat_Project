@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/BackEnd/Messenger_OneChat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FontEnd/stream-chat-angular17-example" vcs="Git" />
   </component>
 </project>

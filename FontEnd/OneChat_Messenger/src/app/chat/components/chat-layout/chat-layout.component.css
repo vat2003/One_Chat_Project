@@ -1,0 +1,22 @@
+.chat-container {
+  height: 100vh;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.messages {
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.message-input {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
