@@ -12,11 +12,23 @@
 }
 
 .message {
-  margin-bottom: 10px;
+  padding: 5px;
+}
+.chat-content {
+  padding: 5px;
+}
+
+.custom-sidenav {
+  width: 300px; /* Thay đổi độ rộng theo mong muốn của bạn */
+}
+
+.sidenav-container {
+  height: 100%;
 }
 
 .message-input {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 300px); /* Điều chỉnh width để phù hợp với độ rộng của sidenav */
 }
+

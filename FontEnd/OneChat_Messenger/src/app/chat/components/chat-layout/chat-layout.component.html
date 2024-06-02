@@ -1,25 +1,40 @@
-<div fxLayout="column" fxLayoutAlign="start stretch" class="chat-container">
-  <mat-toolbar color="primary">
+<div class="d-flex flex-column vh-100">
+  <mat-toolbar color="primary" class="d-flex justify-content-between">
     <span>Ứng dụng Chat</span>
-    <span class="spacer"></span>
     <button mat-button (click)="logout()">Đăng xuất</button>
   </mat-toolbar>
 
-  <div class="messages" fxFlex>
-    <div *ngFor="let message of messages" class="message">
-      <mat-card>
-        <mat-card-title>{{ message.user }}</mat-card-title>
-        <mat-card-content>{{ message.text }}</mat-card-content>
-      </mat-card>
-    </div>
-  </div>
+  <div class="d-flex flex-grow-1">
+    <mat-sidenav-container class="flex-grow-1">
+      <mat-sidenav mode="side" opened class="bg-light" style="width: 300px;">
+        <mat-nav-list>
+          <mat-list-item *ngFor="let chat of chatList" (click)="selectChat(chat)">
+            <h3 matLine>{{ chat.name }}</h3>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-sidenav>
 
-  <mat-card class="message-input">
-    <mat-card-content>
-      <mat-form-field>
-        <input matInput placeholder="Nhập tin nhắn" [(ngModel)]="messageText">
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="sendMessage()">Gửi</button>
-    </mat-card-content>
-  </mat-card>
+      <mat-sidenav-content class="d-flex flex-column">
+        <div class="messages flex-grow-1 overflow-auto p-3" >
+          <div *ngFor="let message of messages" class="message mb-2">
+            <mat-card class="chat-content">
+              <mat-card-title>{{ message.user }}</mat-card-title>
+              <mat-card-content>{{ message.text }}</mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+
+        <mat-card class="message-input">
+          <mat-card-content class="d-flex align-items-center">
+            <mat-form-field class="flex-grow-1 mb-0" style="width: 90%">
+              <mat-label>Enter your message</mat-label>
+              <input matInput [(ngModel)]="messageText">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="sendMessage()">Send</button>
+
+          </mat-card-content>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 </div>
